@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Reminders - Email Reminder App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <style>
+      .reminders-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 30px;
+      }
+
+      .table {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .table thead th {
+        background: var(--gradient);
+        color: white;
+        border: none;
+        padding: 1rem;
+      }
+
+      .table tbody td {
+        padding: 1rem;
+        vertical-align: middle;
+      }
+
+      .status-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9em;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .status-pending {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+      .status-sent {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .btn-primary {
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, #fa845a 0%, #fd6d39 100%);
+        border: none;
+      }
+      .empty-state {
+        text-align: center;
+        padding: 3rem;
+        color: #6c757d;
+      }
+      .empty-state i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .table-hover tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="bi bi-envelope-check me-2"></i>All Reminders</h2>
+        <a href="/" class="btn btn-primary">
+          <i class="bi bi-plus-circle me-2"></i>Schedule New Reminder
+        </a>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><i class="bi bi-envelope me-2"></i>Email</th>
+              <th><i class="bi bi-chat-text me-2"></i>Message</th>
+              <th><i class="bi bi-calendar-check me-2"></i>Scheduled Time</th>
+              <th><i class="bi bi-info-circle me-2"></i>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (reminders.length === 0) { %>
+            <tr>
+              <td colspan="4">
+                <div class="empty-state">
+                  <i class="bi bi-inbox"></i>
+                  <h4>No reminders found</h4>
+                  <p>Schedule your first reminder to get started!</p>
+                </div>
+              </td>
+            </tr>
+            <% } else { %> <% reminders.forEach(reminder => { %>
+            <tr>
+              <td><%= reminder.email %></td>
+              <td><%= reminder.message %></td>
+              <td><%= new Date(reminder.scheduledTime).toLocaleString() %></td>
+              <td>
+                <span
+                  class="status-badge <%= reminder.sent ? 'status-sent' : 'status-pending' %>"
+                >
+                  <i
+                    class="bi <%= reminder.sent ? 'bi-check-circle-fill' : 'bi-clock' %>"
+                  ></i>
+                  <%= reminder.sent ? 'Sent' : 'Pending' %>
+                </span>
+              </td>
+            </tr>
+            <% }); %> <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

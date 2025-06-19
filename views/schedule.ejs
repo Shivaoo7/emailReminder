@@ -1,0 +1,113 @@
+<style>
+  .schedule-section {
+    padding: 100px 0;
+  }
+
+  .schedule-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .schedule-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .schedule-header h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-header p {
+    color: #6c757d;
+    font-size: 1.1rem;
+  }
+
+  .back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .back-link:hover {
+    color: var(--secondary-color);
+  }
+</style>
+
+<!-- Schedule Section -->
+<section class="schedule-section">
+  <div class="container">
+    <div class="schedule-card">
+      <a href="/" class="back-link">
+        <i class="bi bi-arrow-left me-2"></i>Back to Home
+      </a>
+
+      <div class="schedule-header">
+        <h1>Schedule Your Reminder</h1>
+        <p>Fill in the details below to schedule your email reminder</p>
+      </div>
+
+      <% if (typeof success !== 'undefined' && success) { %>
+      <div class="alert alert-success d-flex align-items-center" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        <div>Reminder scheduled successfully!</div>
+      </div>
+      <% } %> <% if (typeof error !== 'undefined' && error) { %>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <div>Error scheduling reminder. Please try again.</div>
+      </div>
+      <% } %>
+
+      <form action="/schedule" method="POST">
+        <div class="mb-4">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="message" class="form-label">Reminder Message</label>
+          <textarea
+            class="form-control"
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Enter your reminder message"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="datetime" class="form-label">Date and Time</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="dateTime"
+            name="dateTime"
+            required
+          />
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>Schedule Reminder
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

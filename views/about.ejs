@@ -1,0 +1,216 @@
+<style>
+  .about-section {
+    padding: 100px 0;
+  }
+
+  .about-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-header h1 {
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .about-header p {
+    color: #6c757d;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .tech-item {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .tech-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .tech-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(52, 168, 83, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-list li:hover {
+    transform: translateX(10px);
+  }
+
+  .feature-list i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  .section-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-title i {
+    font-size: 1.5rem;
+  }
+</style>
+
+<section class="about-section">
+  <div class="container">
+    <div class="about-header">
+      <h1>About Email Reminder</h1>
+      <p>
+        A modern web application designed to help you never miss an important
+        email again. Schedule reminders, stay organized, and boost your
+        productivity.
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="about-card">
+          <h2 class="section-title">
+            <i class="bi bi-info-circle"></i>
+            Project Overview
+          </h2>
+          <p>
+            Email Reminder is a full-stack web application that allows users to
+            schedule email reminders for important tasks and communications. The
+            system automatically sends reminder emails at the specified time,
+            ensuring you never miss a follow-up or important deadline.
+          </p>
+          <p>
+            Built with modern web technologies and best practices, the
+            application provides a seamless user experience with a clean,
+            intuitive interface and reliable email delivery system.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h2 class="section-title">
+            <i class="bi bi-gear"></i>
+            Key Features
+          </h2>
+          <ul class="feature-list">
+            <li>
+              <i class="bi bi-calendar-plus"></i>
+              <div>
+                <strong>Schedule Email Reminders</strong>
+                <p>Set up reminders for any future date and time with ease</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-list-check"></i>
+              <div>
+                <strong>View All Reminders</strong>
+                <p>
+                  Access and manage all your scheduled reminders in one place
+                </p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-envelope-check"></i>
+              <div>
+                <strong>Automatic Email Delivery</strong>
+                <p>
+                  Get your reminders delivered automatically at the scheduled
+                  time
+                </p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-layout-text-window"></i>
+              <div>
+                <strong>Simple Interface</strong>
+                <p>
+                  User-friendly design that makes scheduling reminders
+                  effortless
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="about-card">
+          <h2 class="section-title">
+            <i class="bi bi-code-slash"></i>
+            Tech Stack
+          </h2>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <i class="bi bi-filetype-js"></i>
+              <span>Node.js</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-filetype-html"></i>
+              <span>Express.js</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-database"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-envelope"></i>
+              <span>Nodemailer</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-calendar-check"></i>
+              <span>Node-Cron</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-bootstrap"></i>
+              <span>Bootstrap 5</span>
+            </div>
+            <div class="tech-item">
+              <i class="bi bi-filetype-ejs"></i>
+              <span>EJS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
