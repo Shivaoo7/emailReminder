@@ -22,7 +22,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("layout","layout");
 
 //Connnect to dataBase
-mongoose.connect(process.env.MONGODB_URI).then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log("Connected to mongodb...");
 }).catch((error) => {
     console.log(`Error: connecting to mongodb: ${error.message}`)
@@ -56,7 +56,7 @@ app.get("/about", (req, res) => {
 
 //!schedule the page
 app.get("/schedule", (req, res) => {
-    res.render("Schedule", {
+    res.render("schedule", {
         title: "Schedule Reminder",
         currentPage: "schedule",
     });
@@ -90,7 +90,7 @@ app.get("/reminders", async (req, res) => {
             currentPage: "reminders",
         });
     } catch (error) {
-        
+        res.status(500).send("Error retrieving reminders");
     }
 })
 
